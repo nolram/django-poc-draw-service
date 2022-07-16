@@ -1,0 +1,13 @@
+name: Check Vulnerabilities in the project
+
+on: [push]
+
+permissions:
+  contents: read
+
+jobs:
+  push:
+    uses: nolram/github-actions/.github/workflows/check_vulnerability.yml@main
+    with:
+      project_type: "python"
+    secrets: inherit

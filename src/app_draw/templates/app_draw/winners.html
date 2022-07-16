@@ -1,0 +1,25 @@
+{% extends "../include/base.html" %}
+{% load static %}
+{% block title %} Vencedores {% endblock %}
+{% block style %}
+<link href="{% static 'app_draw/css/winners.css' %}" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+<main class="winners">
+  <h1>Vencedores</h1>
+  <table class="table table-hover table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Nome</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for winner in winners %}
+      <tr>
+        <td scope="row">{{ winner }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</main>
+{% endblock %}

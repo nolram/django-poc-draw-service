@@ -1,0 +1,20 @@
+{{- if .Values.istio.enabled -}}
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: {{ include "chart.fullname" . }}-vs
+spec:
+  hosts:
+  {{- with .Values.istio.hosts }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  gateways:
+    - {{ include "chart.fullname" . }}-gateway
+  http:
+  - timeout: 5s
+    route:
+    - destination:
+        host: {{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local
+        port:
+         number: 80
+{{- end -}}

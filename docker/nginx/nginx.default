@@ -1,0 +1,16 @@
+# nginx.default
+
+server {
+    listen 80;
+    server_name draw.k8s.nolram.info;
+
+    location / {
+        proxy_pass http://localhost:8010;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+    location /static/ {
+        autoindex on;
+        alias /opt/app/project_draw/static/;
+    }
+}
