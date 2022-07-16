@@ -3,7 +3,9 @@ name: Check Vulnerabilities in the project
 on: [push]
 
 permissions:
+  id-token: write
   contents: read
+  security-events: write
 
 jobs:
   push:
