@@ -14,7 +14,7 @@ jobs:
     uses: nolram/github-actions/.github/workflows/deploy_image.yml@main
     with:
       AWS_REGION: "us-east-1"
-      AWS_ECR_REPO: "django-poc-draw-service"
+      AWS_ECR_REPO: "mosaic-studio/django-poc-draw-service"
       project_type: "python"
 
     secrets: inherit
