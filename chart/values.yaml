@@ -45,6 +45,8 @@ env:
       secretKeyRef:
         name: postgresql-db
         key: postgres-password
+  - name: DATABASE_POSTGRES
+    value: "True"
   - name: DB_USER
     value: "postgres"
   - name: DB_HOST
