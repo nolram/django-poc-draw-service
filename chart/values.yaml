@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: public.ecr.aws/h8l7l8v7/project_draw
+  repository: public.ecr.aws/mosaic-studio/django-poc-draw-service
   pullPolicy: Always
   tag: "latest"
 
@@ -43,8 +43,13 @@ env:
   - name: DB_PASSWORD
     valueFrom:
       secretKeyRef:
-        name: postgresql-db
+        name: project-draw-secret
         key: postgres-password
+  - name: DJANGO_SECRET_KEY
+    valueFrom:
+      secretKeyRef:
+        name: project-draw-secret
+        key: django-secret-key
   - name: DATABASE_POSTGRES
     value: "True"
   - name: DB_USER
@@ -61,19 +66,6 @@ env:
 
 ingress:
   enabled: false
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

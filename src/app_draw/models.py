@@ -26,7 +26,7 @@ class Winner(models.Model):
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"winner_id: {self.winner_id} - draw_id: {self.draw_id} - name: {self.name}"
+        return f"winner_id: {self.winner_id} - fk_draw: {self.fk_draw} - name: {self.name}"
 
     def __repr__(self):
         return f"Winner(winner_id={self.winner_id}, name={self.name})"
