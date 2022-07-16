@@ -16,5 +16,6 @@ jobs:
       AWS_REGION: "us-east-1"
       AWS_ECR_REPO: "mosaic-studio/django-poc-draw-service"
       project_type: "python"
+      docker_platforms: "linux/amd64"
 
     secrets: inherit
